@@ -19,8 +19,8 @@ require_revision() {
 	fi
 }
 
-require_revision "$ui_source" "09f35036fd4f2d2f67422d294740f9a92c38827f"
-require_revision "$webview_source" "d1e3c3d705806324bc68da66765860ff7f0b3bd6"
+require_revision "$ui_source" "$LIB_UI_COMMIT"
+require_revision "$webview_source" "$LIB_WEBVIEW_COMMIT"
 require_revision "$tlottie_source" "$TLOTTIE_COMMIT"
 require_revision "$tg_owt_source" "$TG_OWT_COMMIT"
 
@@ -44,7 +44,7 @@ if ! grep -Fq '#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)' "$ui_source_file"; t
 #endif' "$ui_source_file"
 	sed -i '/^QList<QAccessible::Attribute> Widget::attributeKeys()/i\
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)' "$ui_source_file"
-	sed -i '/^} \\/\\/ namespace Ui::Accessible$/i\
+	sed -i '/namespace Ui::Accessible$/i\
 #endif' "$ui_source_file"
 fi
 
