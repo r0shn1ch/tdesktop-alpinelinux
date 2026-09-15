@@ -1,0 +1,59 @@
+diff --git a/ui/accessible/ui_accessible_widget.cpp b/ui/accessible/ui_accessible_widget.cpp
+index aa538f7..af6421f 100644
+--- a/ui/accessible/ui_accessible_widget.cpp
++++ b/ui/accessible/ui_accessible_widget.cpp
+@@ -95,10 +95,12 @@ void *Widget::interface_cast(QAccessible::InterfaceType type) {
+ 		&& rp()->accessibilitySelectionList()) {
+ 		return static_cast<QAccessibleSelectionInterface*>(this);
+ 	}
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+ 	if (type == QAccessible::AttributesInterface
+ 		&& rp()->accessibilityOrientation().has_value()) {
+ 		return static_cast<QAccessibleAttributesInterface*>(this);
+ 	}
++#endif
+ 	return QAccessibleWidget::interface_cast(type);
+ }
+ 
+@@ -358,6 +360,7 @@ bool Widget::clear() {
+ // Attributes. Reports the container's orientation (e.g. a vertical list) so UI
+ // Automation can describe a horizontal/vertical orientation.
+ 
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+ QList<QAccessible::Attribute> Widget::attributeKeys() const {
+ 	auto result = QList<QAccessible::Attribute>();
+ 	if (rp()->accessibilityOrientation().has_value()) {
+@@ -377,5 +380,6 @@ QVariant Widget::attributeValue(QAccessible::Attribute key) const {
+ 	}
+ 	return QVariant();
+ }
++#endif
+ 
+ } // namespace Ui::Accessible
+diff --git a/ui/accessible/ui_accessible_widget.h b/ui/accessible/ui_accessible_widget.h
+index a7de7b4..9fe875d 100644
+--- a/ui/accessible/ui_accessible_widget.h
++++ b/ui/accessible/ui_accessible_widget.h
+@@ -17,7 +17,10 @@ namespace Ui::Accessible {
+ class Widget
+ 	: public QAccessibleWidget
+ 	, public QAccessibleSelectionInterface
+-	, public QAccessibleAttributesInterface {
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
++	, public QAccessibleAttributesInterface
++#endif
++{
+ public:
+ 	explicit Widget(not_null<RpWidget*> widget);
+ 
+@@ -63,8 +66,10 @@ public:
+ 	// Attributes. Exposed (via interface_cast) only when the widget reports an
+ 	// accessibilityOrientation(), so UI Automation can announce a horizontal or
+ 	// vertical orientation.
++#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+ 	QList<QAccessible::Attribute> attributeKeys() const override;
+ 	QVariant attributeValue(QAccessible::Attribute key) const override;
++#endif
+ 
+ };
+ 
