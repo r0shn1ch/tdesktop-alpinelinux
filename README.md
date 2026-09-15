@@ -72,6 +72,7 @@ Version **1.8.15** was the last that supports older systems
 * [Windows (32-bit and 64-bit)][win]
 * [macOS][mac]
 * [GNU/Linux using Docker][linux]
+* [Alpine Linux 3.20 offline APK][alpine]
 
 [//]: # (LINKS)
 [telegram]: https://telegram.org
@@ -82,6 +83,7 @@ Version **1.8.15** was the last that supports older systems
 [win]: docs/building-win.md
 [mac]: docs/building-mac.md
 [linux]: docs/building-linux.md
+[alpine]: packaging/alpine/BUILD.md
 [preview_image]: https://github.com/telegramdesktop/tdesktop/blob/dev/docs/assets/preview.png "Preview of Telegram Desktop"
 [preview_image_url]: https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/docs/assets/preview.png
 
@@ -96,4 +98,3 @@ Version **1.8.15** was the last that supports older systems
 </a>
 
 CI infrastructure sponsored by [Depot](https://depot.dev) — fast GitHub Actions runners.
-
