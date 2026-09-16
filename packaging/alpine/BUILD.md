@@ -83,6 +83,12 @@ apk add alpine-sdk build-base cmake ninja meson python3 pkgconf gperf boost-dev 
 
 Не устанавливайте в этот build-root пакеты из edge. Наличие одновременно
 ffmpeg-libs/tg_owt-dev из разных веток делает результат непредсказуемым.
+Для GLib introspection в Alpine добавь транзитивные библиотеки во временную
+линковку сканера:
+
+```sh
+export LDFLAGS="-lmount -lblkid"
+```
 Для native tlottie нужен Rust 1.96.1; его toolchain и Cargo cache должны быть
 подготовлены заранее, если сборка выполняется без интернета.
 
