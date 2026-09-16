@@ -37,7 +37,7 @@ git clone https://github.com/tdlib/td.git tdlib
 git -C tdlib checkout 51743dfd01dff6179e2d8f7095729caa4e2222e9
 
 git clone --branch alpine-3.20.6 https://github.com/r0shn1ch/tlottie.git tlottie
-git -C tlottie checkout 417f57d724a9708270e92690f006ee6a7200aca8
+git -C tlottie checkout 6f13037238b04a1764b2d76babdebfed433b738f
 
 git clone --branch alpine-3.20.6 --recurse-submodules \
   https://github.com/r0shn1ch/tg_owt.git tg_owt
