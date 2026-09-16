@@ -71,9 +71,9 @@ https://dl-cdn.alpinelinux.org/alpine/v3.20/community
 Минимальный набор инструментов и development-пакетов:
 
 ```sh
-apk add alpine-sdk build-base cmake ninja meson python3 pkgconf \
+apk add alpine-sdk build-base cmake ninja meson python3 pkgconf gperf \
   qt6-qtbase-dev qt6-qtdeclarative-dev qt6-qtwayland-dev qt6-qtsvg-dev \
-  ffmpeg-dev libvpx-dev openh264-dev abseil-cpp-dev \
+  ffmpeg-dev libvpx-dev openh264-dev abseil-cpp-dev zlib-dev \
   glib-dev pango-dev cairo-dev fontconfig-dev hunspell-dev \
   libx11-dev libxcomposite-dev libxdamage-dev libxext-dev \
   libxfixes-dev libxrandr-dev libxtst-dev libxkbcommon-dev libxcb-dev \
