@@ -130,20 +130,24 @@ API ID и API hash передавай переменными окружения 
 
 ## Проверка и упаковка
 
-Перед передачей APK проверь:
+Команды выше собирают бинарник и staging-root в `$DESTDIR`; сами по себе они
+не создают APK. Для APK нужен отдельный `APKBUILD` и запуск `abuild`.
+
+Проверь зависимости собранного бинарника:
 
 ```sh
-apk verify telegram-desktop-7.2.8-r1.apk
 readelf -d "$DESTDIR/usr/bin/Telegram" | grep -E 'NEEDED|RUNPATH'
 ```
 
-Подпиши APK своим локальным ключом Alpine и передай публичный ключ вместе с
-пакетом. На целевой машине установка выглядит так:
+После упаковки проверь APK и установи его своим локальным ключом Alpine:
 
 ```sh
+apk verify telegram-desktop-7.2.8-r1.apk
 install -m 0644 telegram-desktop-local.rsa.pub /etc/apk/keys/
 apk add ./telegram-desktop-7.2.8-r1.apk
-telegram-desktop
+Telegram
 ```
 
-Профиль Telegram хранится в домашнем каталоге и не является частью APK.
+В установленной системе запускается `/usr/bin/Telegram` (именно это имя
+использует desktop-файл). Профиль Telegram хранится в домашнем каталоге и не
+является частью APK.
