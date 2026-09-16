@@ -96,6 +96,12 @@ cmake -S "$TDLIB_SOURCE_DIR" -B build/tdlib -G Ninja \
 cmake --build build/tdlib --parallel
 DESTDIR="$DESTDIR" cmake --install build/tdlib
 
+# Telegram's Linux build consumes tde2e as a separate CMake package.
+cmake -S "$TDLIB_SOURCE_DIR" -B build/tdlib_e2e -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+cmake --build build/tdlib_e2e --parallel
+DESTDIR="$DESTDIR" cmake --install build/tdlib_e2e
+
 cargo build --release --manifest-path "$TLOTTIE_SOURCE_DIR/Cargo.toml"
 install -Dm644 "$TLOTTIE_SOURCE_DIR/target/release/libtlottie.a" \
   "$DESTDIR/usr/lib/libtlottie.a"
