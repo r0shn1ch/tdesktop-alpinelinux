@@ -30,7 +30,7 @@ libabsl_*.so.2608.0.0, libada.so.3 и другие edge-версии. Налич
 ```sh
 git clone --branch alpine-3.20-v7.2.8 --recurse-submodules \
   https://github.com/r0shn1ch/tdesktop-alpinelinux.git tdesktop
-git -C tdesktop checkout 24c1d98e02f72864372bae5b634323186363d666
+git -C tdesktop checkout ba8d387430715a923ca78075d96046b08b6ead35
 git -C tdesktop submodule update --init --recursive
 
 git clone https://github.com/tdlib/td.git tdlib
