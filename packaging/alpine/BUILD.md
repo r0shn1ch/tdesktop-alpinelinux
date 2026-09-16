@@ -74,7 +74,7 @@ https://dl-cdn.alpinelinux.org/alpine/v3.20/community
 apk add alpine-sdk build-base cmake ninja meson python3 pkgconf gperf \
   qt6-qtbase-dev qt6-qtdeclarative-dev qt6-qtwayland-dev qt6-qtsvg-dev \
   ffmpeg-dev libvpx-dev openh264-dev abseil-cpp-dev zlib-dev \
-  glib-dev pango-dev cairo-dev fontconfig-dev hunspell-dev \
+  glib-dev pango-dev cairo-dev fontconfig-dev hunspell-dev pipewire-dev \
   libx11-dev libxcomposite-dev libxdamage-dev libxext-dev \
   libxfixes-dev libxrandr-dev libxtst-dev libxkbcommon-dev libxcb-dev \
   libavif-dev libheif-dev libjxl-dev libdispatch-dev xxhash-dev \
