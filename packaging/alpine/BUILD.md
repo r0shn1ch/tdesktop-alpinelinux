@@ -108,7 +108,7 @@ cmake -S "$TDLIB_SOURCE_DIR" -B build/tdlib_e2e -G Ninja \
 cmake --build build/tdlib_e2e --parallel
 DESTDIR="$DESTDIR" cmake --install build/tdlib_e2e
 
-cargo build --release --manifest-path "$TLOTTIE_SOURCE_DIR/Cargo.toml"
+cargo build --release --features c-api --manifest-path "$TLOTTIE_SOURCE_DIR/Cargo.toml"
 install -Dm644 "$TLOTTIE_SOURCE_DIR/target/release/libtlottie.a" \
   "$DESTDIR/usr/lib/libtlottie.a"
 install -Dm644 "$TLOTTIE_SOURCE_DIR/include/tlottie.h" \
