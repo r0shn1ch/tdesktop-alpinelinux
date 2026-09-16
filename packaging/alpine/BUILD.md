@@ -104,7 +104,9 @@ DESTDIR="$DESTDIR" cmake --install build/tdlib
 
 # Telegram's Linux build consumes tde2e as a separate CMake package.
 cmake -S "$TDLIB_SOURCE_DIR" -B build/tdlib_e2e -G Ninja \
-  -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+  -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr \
+  -DCMAKE_INSTALL_LIBDIR=lib \
+  -DTD_E2E_ONLY=ON -DTD_INSTALL_STATIC_LIBRARIES=ON
 cmake --build build/tdlib_e2e --parallel
 DESTDIR="$DESTDIR" cmake --install build/tdlib_e2e
 
